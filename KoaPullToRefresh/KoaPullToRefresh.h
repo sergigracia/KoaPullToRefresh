@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <AvailabilityMacros.h>
-#import "Resources/NSString+FontAwesome.h"
-#import "Resources/UIFont+FontAwesome.h"
+#import "NSString+FontAwesome.h"
+#import "UIFont+FontAwesome.h"
 
 @class KoaPullToRefreshView;
 
