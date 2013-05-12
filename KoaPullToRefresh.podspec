@@ -5,6 +5,7 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = 'Minimal & easily customizable pull-to-refresh control.'
   s.homepage = 'https://github.com/sergigracia/KoaPullToRefresh'
+  
   s.author   = { 'Sergi Gracia' => 'sergigram@gmail.com', 'Polina Flegontovna' => 'polina.flegontovna@gmail.com' }
   s.source   = { :git => 'https://github.com/sergigracia/KoaPullToRefresh.git', :tag => s.version.to_s }
 
@@ -16,6 +17,10 @@ Pod::Spec.new do |s|
 
   s.frameworks   = 'QuartzCore'
   s.source_files = 'KoaPullToRefresh/*.{h,m,ttf}'
+  
+  s.ios.resources = "KoaPullToRefresh/*.ttf"
+  s.osx.resources = "KoaPullToRefresh/"
+
   s.preserve_paths  = 'Demo'
   s.requires_arc = true
 end
