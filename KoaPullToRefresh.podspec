@@ -16,10 +16,10 @@ Pod::Spec.new do |s|
                   'Enjoy.'
 
   s.frameworks   = 'QuartzCore'
-  s.source_files = 'KoaPullToRefresh/*.{h,m,ttf}'
+  s.source_files = 'KoaPullToRefresh/*.{h,m}'
   
-  s.ios.resources = "KoaPullToRefresh/Resources/*.ttf"
-  s.osx.resources = "KoaPullToRefresh/Resources/"
+  s.ios.resources = "KoaPullToRefresh/*.ttf"
+  s.osx.resources = "KoaPullToRefresh/"
 
   s.preserve_paths  = 'Demo'
   s.requires_arc = true
