@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
   s.frameworks   = 'QuartzCore'
   s.source_files = 'KoaPullToRefresh/*.{h,m,ttf}'
   
-  s.ios.resources = "KoaPullToRefresh/*.ttf"
-  s.osx.resources = "KoaPullToRefresh/"
+  s.ios.resources = "KoaPullToRefresh/Resources/*.ttf"
+  s.osx.resources = "KoaPullToRefresh/Resources/"
 
   s.preserve_paths  = 'Demo'
   s.requires_arc = true
