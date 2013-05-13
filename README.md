@@ -2,9 +2,6 @@ KoaPullToRefresh
 ================
 A new pull to refresh control based on the [SVPullToRefresh](https://github.com/samvermette/SVPullToRefresh).
 
-Demo
-====
-
 Installation
 ============
 ### From CocoaPods
@@ -14,8 +11,8 @@ Installation
 ### Manually
 1. Drag the KoaPullToRefresh/KoaPullToRefresh folder into your project.
 2. Add the ```QuartCore framework``` to your project.
-4. Edit your app's Info.plist to contain the key: ```"Fonts provided by application"``` (```UIAppFonts```). Then add ```FontAwesome.ttf``` to the list under that key.
-3. Import ```KoaPullToRefresh.h```.
+3. Edit your app's Info.plist to contain the key: ```"Fonts provided by application"``` (```UIAppFonts```). Then add ```FontAwesome.ttf``` to the list under that key.
+4. Import ```KoaPullToRefresh.h```.
 
 Usage
 =====
