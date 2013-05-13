@@ -62,7 +62,7 @@
 
 - (void)refreshTable
 {
-    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:2];
+    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:3];
     [self.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:2];
 }
 
