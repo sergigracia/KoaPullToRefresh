@@ -1,6 +1,6 @@
 KoaPullToRefresh
 ================
-A new pull to refresh control based on the [SVPullToRefresh](https://github.com/samvermette/SVPullToRefresh).
+KoaPullToRefresh is a minimal & easily customizable pull-to-refresh control. You can change the font, colors, size and even replace the spinning icon using FontAwesome. This library is very easy to add and customize. This pull to refresh control is developed for [Teambox](http://teambox.com) and is based on the [SVPullToRefresh](https://github.com/samvermette/SVPullToRefresh).
 
 Installation
 ============
