@@ -39,3 +39,5 @@ Contact
 License
 =======
 KoaPullToRefresh is available under the MIT License. See the License file for more info.
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/a2cc0b866193ddfa6f06c859bc7ef2ec "githalytics.com")](http://githalytics.com/sergigracia/KoaPullToRefresh)
