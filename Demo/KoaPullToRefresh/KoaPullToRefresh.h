@@ -17,8 +17,7 @@
 
 - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler;
 - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler withBackgroundColor:(UIColor *)customBackgroundColor;
-- (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler withBackgroundColor:(UIColor *)customBackgroundColor withPullToRefreshHeight:(CGFloat)pullToRefreshHeight;
-- (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler withBackgroundColor:(UIColor *)customBackgroundColor withPullToRefreshHeight:(CGFloat)pullToRefreshHeight withPullToRefreshHeightShowed:(CGFloat)pullToRefreshHeightShowed;
+- (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler withBackgroundColor:(UIColor *)customBackgroundColor withPullToRefreshHeightShowed:(CGFloat)pullToRefreshHeightShowed;
 - (void)triggerPullToRefresh;
 
 @property (nonatomic, strong) KoaPullToRefreshView *pullToRefreshView;

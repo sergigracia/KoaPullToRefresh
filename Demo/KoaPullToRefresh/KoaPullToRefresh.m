@@ -14,7 +14,7 @@
 
 static CGFloat KoaPullToRefreshViewHeight = 82;
 static CGFloat KoaPullToRefreshViewHeightShowed = 0;
-static CGFloat KoaPullToRefreshViewTitleBottomMargin = 16;
+static CGFloat KoaPullToRefreshViewTitleBottomMargin = 14;
 
 @interface KoaPullToRefreshView ()
 
@@ -50,21 +50,14 @@ static char UIScrollViewPullToRefreshView;
 
 - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler
                   withBackgroundColor:(UIColor *)customBackgroundColor {
-    [self addPullToRefreshWithActionHandler:actionHandler withBackgroundColor:customBackgroundColor withPullToRefreshHeight:KoaPullToRefreshViewHeight];
+    [self addPullToRefreshWithActionHandler:actionHandler withBackgroundColor:customBackgroundColor withPullToRefreshHeightShowed:KoaPullToRefreshViewHeightShowed];
 }
 
 - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler
                       withBackgroundColor:(UIColor *)customBackgroundColor
-                  withPullToRefreshHeight:(CGFloat)pullToRefreshHeight {
-    [self addPullToRefreshWithActionHandler:actionHandler withBackgroundColor:customBackgroundColor withPullToRefreshHeight:pullToRefreshHeight withPullToRefreshHeightShowed:KoaPullToRefreshViewHeightShowed];
-}
-
-- (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler
-                      withBackgroundColor:(UIColor *)customBackgroundColor
-                  withPullToRefreshHeight:(CGFloat)pullToRefreshHeight
             withPullToRefreshHeightShowed:(CGFloat)pullToRefreshHeightShowed {
     
-    KoaPullToRefreshViewHeight = pullToRefreshHeight;
+    //KoaPullToRefreshViewHeight = pullToRefreshHeight;
     KoaPullToRefreshViewHeightShowed = pullToRefreshHeightShowed;
     KoaPullToRefreshViewTitleBottomMargin += pullToRefreshHeightShowed;
     
@@ -202,18 +195,25 @@ static char UIScrollViewPullToRefreshView;
     //Set title frame
     CGSize titleSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(labelMaxWidth,self.titleLabel.font.lineHeight) lineBreakMode:self.titleLabel.lineBreakMode];
     CGFloat titleY = self.bounds.size.height  - titleSize.height - KoaPullToRefreshViewTitleBottomMargin;
+    
     [self.titleLabel setFrame:CGRectIntegral(CGRectMake(0, titleY, self.frame.size.width, titleSize.height))];
     
     //Set state of loader label
     switch (self.state) {
         case KoaPullToRefreshStateStopped:
             [self.loaderLabel setAlpha:0];
-            [self.loaderLabel setFrame:CGRectMake(self.frame.size.width/2 - self.loaderLabel.frame.size.width/2, titleY - 100, self.loaderLabel.frame.size.width, self.loaderLabel.frame.size.height)];
+            [self.loaderLabel setFrame:CGRectMake(self.frame.size.width/2 - self.loaderLabel.frame.size.width/2,
+                                                  titleY - 100,
+                                                  self.loaderLabel.frame.size.width,
+                                                  self.loaderLabel.frame.size.height)];
             break;
         case KoaPullToRefreshStateTriggered:
             [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
                 [self.loaderLabel setAlpha:1];
-                [self.loaderLabel setFrame:CGRectMake(self.frame.size.width/2 - self.loaderLabel.frame.size.width/2, titleY - 24, self.loaderLabel.frame.size.width, self.loaderLabel.frame.size.height)];
+                [self.loaderLabel setFrame:CGRectMake(self.frame.size.width/2 - self.loaderLabel.frame.size.width/2,
+                                                      titleY - 24,
+                                                      self.loaderLabel.frame.size.width,
+                                                      self.loaderLabel.frame.size.height)];
             } completion:NULL];
             break;
     }

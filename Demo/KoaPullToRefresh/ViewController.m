@@ -43,7 +43,7 @@
     //Add pull to refresh
     [self.tableView addPullToRefreshWithActionHandler:^{
         [self refreshTable];
-    } withBackgroundColor:[UIColor colorWithRed:0.251 green:0.663 blue:0.827 alpha:1] withPullToRefreshHeight:82 withPullToRefreshHeightShowed:2];
+    } withBackgroundColor:[UIColor colorWithRed:0.251 green:0.663 blue:0.827 alpha:1] withPullToRefreshHeightShowed:2];
     
     //Customize pulltorefresh text colors
     [self.tableView.pullToRefreshView setTextColor:[UIColor whiteColor]];
@@ -51,13 +51,19 @@
     
     //Set fontawesome icon
     [self.tableView.pullToRefreshView setFontAwesomeIcon:@"icon-refresh"];
-    
+
     //Hide scroll indicator
     [self.tableView setShowsVerticalScrollIndicator:NO];
     
     //Set rounded corners
     [self.view.layer setCornerRadius:7];
     [self.view.layer setMasksToBounds:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView triggerPullToRefresh];
+    //[self.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:2];
 }
 
 - (void)didReceiveMemoryWarning
