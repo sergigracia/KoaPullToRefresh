@@ -49,6 +49,12 @@
     [self.tableView.pullToRefreshView setTextColor:[UIColor whiteColor]];
     [self.tableView.pullToRefreshView setTextFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
     
+    //Set fontawesome icon
+    [self.tableView.pullToRefreshView setFontAwesomeIcon:@"icon-refresh"];
+    
+    //Hide scroll indicator
+    [self.tableView setShowsVerticalScrollIndicator:NO];
+    
     //Set rounded corners
     [self.view.layer setCornerRadius:7];
     [self.view.layer setMasksToBounds:YES];
