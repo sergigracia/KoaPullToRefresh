@@ -1,6 +1,6 @@
-KoaPullToRefresh
+KoaPullToRefresh [![Build Status](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png)](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
 ================
-KoaPullToRefresh is a minimal & easily customizable pull-to-refresh control. You can change the font, colors, size and even replace the spinning icon using FontAwesome. This library is very easy to add and customize. This pull to refresh control is developed for [Teambox](http://teambox.com) and is based on the [SVPullToRefresh](https://github.com/samvermette/SVPullToRefresh).
+KoaPullToRefresh is a minimal & easily customizable pull-to-refresh control. You can change the font, colors, size and even replace the spinning icon using FontAwesome. This library is very easy to add and customize. This pull to refresh control is developed for [Teambox](http://teambox.com) and is based on the [SVPullToRefresh](https://github.com/samvermette/SVPullToRefresh) and use [ios-fontawesome](https://github.com/alexdrone/ios-fontawesome) to work with font awesome icons.
 
 ![](https://dl.dropbox.com/s/z3c413vrrfsxfez/KoaPullToRefresh_S1.png)
 
@@ -19,11 +19,73 @@ Installation
 Usage
 =====
 ### Adding KoaPullToRefresh
+Add this in your ```viewDidLoad```:
+
 ```objective-c
 [tableView addPullToRefreshWithActionHandler:^{
 	// Tasks to do on refresh. Update datasource, add rows, …
 	// Call [tableView.pullToRefreshView stopAnimating] when done.
 }];
+```
+
+Adding background color:
+
+```objective-c
+[tableView addPullToRefreshWithActionHandler:^{
+	// Tasks to do on refresh. Update datasource, add rows, …
+	// Call [tableView.pullToRefreshView stopAnimating] when done.
+} withBackgroundColor:[UIColor blueColor]];
+```
+
+Adding the height of showed pixels:
+
+```objective-c
+[tableView addPullToRefreshWithActionHandler:^{
+	// Tasks to do on refresh. Update datasource, add rows, …
+	// Call [tableView.pullToRefreshView stopAnimating] when done.
+} withBackgroundColor:[UIColor blueColor] withPullToRefreshHeightShowed:2];
+```
+
+### Customize KoaPullToRefresh
+
+Set the color of fontAwesome icon and text:
+
+```objective-c
+[self.tableView.pullToRefreshView setTextColor:[UIColor whiteColor]];
+```
+
+Set the text font:
+
+```objective-c
+[self.tableView.pullToRefreshView setTextFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
+```
+
+Set the font awesome icon:
+
+```objective-c
+[self.tableView.pullToRefreshView setFontAwesomeIcon:@"icon-refresh"];
+```
+
+Set titles:
+
+```objective-c
+[self.tableView.pullToRefreshView setTitle:@"Pull" forState:KoaPullToRefreshStateStopped];
+[self.tableView.pullToRefreshView setTitle:@"Release" forState:KoaPullToRefreshStateTriggered];
+[self.tableView.pullToRefreshView setTitle:@"Loading" forState:KoaPullToRefreshStateLoading];
+```
+
+### Manage KoaPullToRefresh
+
+Start animating KoaPullToRefresh (```viewDidLoad```)
+
+```objective-c
+[self.tableView.pullToRefreshView startAnimating];
+```
+
+Stop animating KoaPullToRefresh
+
+```objective-c
+[self.tableView.pullToRefreshView stopAnimating];
 ```
 
 Requirements
