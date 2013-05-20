@@ -52,6 +52,11 @@
     //Set fontawesome icon
     [self.tableView.pullToRefreshView setFontAwesomeIcon:@"icon-refresh"];
 
+    //Set titles
+    [self.tableView.pullToRefreshView setTitle:@"Pull" forState:KoaPullToRefreshStateStopped];
+    [self.tableView.pullToRefreshView setTitle:@"Release" forState:KoaPullToRefreshStateTriggered];
+    [self.tableView.pullToRefreshView setTitle:@"Loading" forState:KoaPullToRefreshStateLoading];
+    
     //Hide scroll indicator
     [self.tableView setShowsVerticalScrollIndicator:NO];
     
