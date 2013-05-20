@@ -89,11 +89,6 @@ static char UIScrollViewPullToRefreshView;
     }
 }
 
-- (void)triggerPullToRefresh {
-    self.pullToRefreshView.state = KoaPullToRefreshStateTriggered;
-    [self.pullToRefreshView startAnimating];
-}
-
 - (void)setPullToRefreshView:(KoaPullToRefreshView *)pullToRefreshView {
     [self willChangeValueForKey:@"KoaPullToRefreshView"];
     objc_setAssociatedObject(self, &UIScrollViewPullToRefreshView,
@@ -228,9 +223,10 @@ static char UIScrollViewPullToRefreshView;
 }
 
 - (void)setScrollViewContentInsetForLoading {
-    CGFloat offset = MAX(self.scrollView.contentOffset.y * -1, 0);
     UIEdgeInsets currentInsets = self.scrollView.contentInset;
-    currentInsets.top = MIN(offset, self.originalTopInset + self.bounds.size.height);
+    //CGFloat offset = MAX(self.scrollView.contentOffset.y * -1, 0);
+    //currentInsets.top = MIN(offset, self.originalTopInset + self.bounds.size.height);
+    currentInsets.top = self.originalTopInset + self.bounds.size.height;
     [self setScrollViewContentInset:currentInsets];
 }
 
@@ -367,11 +363,11 @@ static char UIScrollViewPullToRefreshView;
 
 #pragma mark -
 
-- (void)triggerRefresh {
-    [self.scrollView triggerPullToRefresh];
-}
-
 - (void)startAnimating{
+    
+    //Show loader
+    self.state = KoaPullToRefreshStateTriggered;
+    [self layoutSubviews];
     
     if(fequalzero(self.scrollView.contentOffset.y)) {
         [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, -self.frame.size.height) animated:YES];

@@ -58,12 +58,13 @@
     //Set rounded corners
     [self.view.layer setCornerRadius:7];
     [self.view.layer setMasksToBounds:YES];
+
+    [self.tableView.pullToRefreshView startAnimating];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self.tableView triggerPullToRefresh];
-    //[self.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:2];
+    [self.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:2];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,7 +75,7 @@
 
 - (void)refreshTable
 {
-    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:3];
+    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:2];
     [self.tableView.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:2];
 }
 
@@ -105,6 +106,5 @@
     
     return cell;
 }
-
 
 @end
