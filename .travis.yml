@@ -1,7 +1,7 @@
 language: objective-c
 xcode_sdk: iphonesimulator
 
-before_scripts: cd KoaPullToRefresh/KoaPullToRefresh/
+before_install: cd KoaPullToRefresh
 
 notifications:
   email: false
