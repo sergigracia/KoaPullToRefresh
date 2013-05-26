@@ -303,6 +303,7 @@ static char UIScrollViewPullToRefreshView;
         _loaderLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:20];
         _loaderLabel.backgroundColor = [UIColor clearColor];
         _loaderLabel.textColor = textColor;
+        [_loaderLabel sizeToFit];
         [self addSubview:_loaderLabel];
     }
     return _loaderLabel;
@@ -352,13 +353,6 @@ static char UIScrollViewPullToRefreshView;
 {
     _fontAwesomeIcon = fontAwesomeIcon;
     _loaderLabel.text = [NSString fontAwesomeIconStringForIconIdentifier:self.fontAwesomeIcon];
-    
-    //Exception for 'icon-refresh', fixing rotation center
-    if ([self.fontAwesomeIcon isEqualToString:@"icon-refresh"]) {
-        [_loaderLabel setFrame:CGRectMake(self.frame.size.width/2 - 17/2, 0, 17, 17)];
-    }else{
-        [_loaderLabel setFrame:CGRectMake(self.frame.size.width/2 - 20/2, 0, 20, 20)];
-    }
 }
 
 #pragma mark -
