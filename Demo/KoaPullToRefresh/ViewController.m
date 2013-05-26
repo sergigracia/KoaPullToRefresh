@@ -50,7 +50,7 @@
     [self.tableView.pullToRefreshView setTextFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
     
     //Set fontawesome icon
-    [self.tableView.pullToRefreshView setFontAwesomeIcon:@"icon-refresh"];
+    [self.tableView.pullToRefreshView setFontAwesomeIcon:@"icon-repeat"];
 
     //Set titles
     [self.tableView.pullToRefreshView setTitle:@"Pull" forState:KoaPullToRefreshStateStopped];
