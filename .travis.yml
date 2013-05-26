@@ -1,6 +1,4 @@
-#language: objective-c
-#xcode_sdk: iphonesimulator
-#before_install: cd KoaPullToRefresh
+language: objective-c
 
 before_install:
   - brew update
