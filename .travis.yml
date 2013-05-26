@@ -1,7 +1,12 @@
-language: objective-c
-xcode_sdk: iphonesimulator
+#language: objective-c
+#xcode_sdk: iphonesimulator
+#before_install: cd KoaPullToRefresh
 
-before_install: cd KoaPullToRefresh
+before_install:
+  - brew update
+  - brew install xctool --HEAD
+
+script: xctool ARCHS="armv7 armv7s" ONLY_ACTIVE_ARCH=NO -project Demo/KoaPullToRefresh.xcodeproj -scheme KoaPullToRefresh
 
 notifications:
   email: false
