@@ -4,7 +4,7 @@ before_install:
   - brew update
   - brew install xctool --HEAD
 
-script: xctool ARCHS="armv7 armv7s" ONLY_ACTIVE_ARCH=NO -project Demo/KoaPullToRefresh.xcodeproj -scheme KoaPullToRefresh build test
-
 notifications:
   email: false
+
+script: xctool ONLY_ACTIVE_ARCH=NO -project Demo/KoaPullToRefresh.xcodeproj -sdk iphonesimulator -scheme KoaPullToRefresh build
