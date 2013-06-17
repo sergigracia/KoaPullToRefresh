@@ -43,14 +43,14 @@
     //Add pull to refresh
     [self.tableView addPullToRefreshWithActionHandler:^{
         [self refreshTable];
-    } withBackgroundColor:[UIColor colorWithRed:0.251 green:0.663 blue:0.827 alpha:1] withPullToRefreshHeightShowed:2];
+    } withBackgroundColor:[UIColor colorWithRed:0.251 green:0.663 blue:0.827 alpha:1] withPullToRefreshHeightShowed:4];
     
     //Customize pulltorefresh text colors
     [self.tableView.pullToRefreshView setTextColor:[UIColor whiteColor]];
-    [self.tableView.pullToRefreshView setTextFont:[UIFont fontWithName:@"OpenSans-Bold" size:14]];
+    [self.tableView.pullToRefreshView setTextFont:[UIFont fontWithName:@"OpenSans-Semibold" size:16]];
     
     //Set fontawesome icon
-    [self.tableView.pullToRefreshView setFontAwesomeIcon:@"icon-repeat"];
+    [self.tableView.pullToRefreshView setFontAwesomeIcon:@"icon-refresh"];
 
     //Set titles
     [self.tableView.pullToRefreshView setTitle:@"Pull" forState:KoaPullToRefreshStateStopped];
@@ -59,10 +59,6 @@
     
     //Hide scroll indicator
     [self.tableView setShowsVerticalScrollIndicator:NO];
-    
-    //Set rounded corners
-    [self.view.layer setCornerRadius:7];
-    [self.view.layer setMasksToBounds:YES];
 
     [self.tableView.pullToRefreshView startAnimating];
 }
@@ -108,6 +104,7 @@
     cell.textLabel.text = [self.tableValues objectAtIndex:indexPath.row];
     [cell.textLabel setFont:[UIFont fontWithName:@"OpenSans-Semibold" size:13]];
     [cell.textLabel setTextColor:[UIColor grayColor]];
+    [cell setBackgroundColor:[UIColor whiteColor]];
     
     return cell;
 }

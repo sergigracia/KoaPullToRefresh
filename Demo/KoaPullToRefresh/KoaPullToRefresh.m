@@ -14,7 +14,7 @@
 
 static CGFloat KoaPullToRefreshViewHeight = 82;
 static CGFloat KoaPullToRefreshViewHeightShowed = 0;
-static CGFloat KoaPullToRefreshViewTitleBottomMargin = 14;
+static CGFloat KoaPullToRefreshViewTitleBottomMargin = 12;
 
 @interface KoaPullToRefreshView ()
 
@@ -189,7 +189,7 @@ static char UIScrollViewPullToRefreshView;
     
     //Set title frame
     CGSize titleSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(labelMaxWidth,self.titleLabel.font.lineHeight) lineBreakMode:self.titleLabel.lineBreakMode];
-    CGFloat titleY = self.bounds.size.height  - titleSize.height - KoaPullToRefreshViewTitleBottomMargin;
+    CGFloat titleY = KoaPullToRefreshViewHeight - KoaPullToRefreshViewHeightShowed - titleSize.height - KoaPullToRefreshViewTitleBottomMargin;
     
     [self.titleLabel setFrame:CGRectIntegral(CGRectMake(0, titleY, self.frame.size.width, titleSize.height))];
     
@@ -278,6 +278,17 @@ static char UIScrollViewPullToRefreshView;
         offset = MIN(offset, self.originalTopInset + self.bounds.size.height);
         contentInset = self.scrollView.contentInset;
         self.scrollView.contentInset = UIEdgeInsetsMake(offset, contentInset.left, contentInset.bottom, contentInset.right);
+    }
+    
+    //Set content offset for special cases
+    if(self.state != KoaPullToRefreshStateLoading) {
+        if (self.scrollView.contentOffset.y > -KoaPullToRefreshViewHeightShowed && self.scrollView.contentOffset.y < 0) {
+            [self.scrollView setContentInset:UIEdgeInsetsMake(abs(self.scrollView.contentOffset.y), self.scrollView.contentInset.left, self.scrollView.contentInset.bottom, self.scrollView.contentInset.right)];
+        }else if(self.scrollView.contentOffset.y > -KoaPullToRefreshViewHeightShowed) {
+            [self.scrollView setContentInset:UIEdgeInsetsZero];
+        }else{
+            [self.scrollView setContentInset:UIEdgeInsetsMake(KoaPullToRefreshViewHeightShowed, self.scrollView.contentInset.left, self.scrollView.contentInset.bottom, self.scrollView.contentInset.right)];
+        }
     }
 }
 
