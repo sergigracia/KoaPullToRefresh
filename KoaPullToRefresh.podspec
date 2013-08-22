@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'KoaPullToRefresh'
-  s.version  = '1.0.5'
+  s.version  = '1.0.6'
   s.platform = :ios, '5.0'
   s.license  = 'MIT'
   s.summary  = 'Minimal & easily customizable pull-to-refresh control.'
