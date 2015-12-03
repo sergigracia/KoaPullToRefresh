@@ -88,8 +88,8 @@ static char UIScrollViewPullToRefreshView;
         self.showsPullToRefresh = YES;
     }
 
-    KoaPullToRefreshViewHeightShowed = pullToRefreshHeightShowed;
-    KoaPullToRefreshViewTitleBottomMargin += pullToRefreshHeightShowed;
+    KoaPullToRefreshViewHeightShowed = pullToRefreshHeightShowedView;
+    KoaPullToRefreshViewTitleBottomMargin += pullToRefreshHeightShowedView;
 }
 
 - (void)setPullToRefreshView:(KoaPullToRefreshView *)pullToRefreshView {
@@ -127,7 +127,7 @@ static char UIScrollViewPullToRefreshView;
     }
 }
 
-#pragma mark - Hello folks !
+#pragma mark - Hello folks
 
 - (BOOL)showsPullToRefresh {
     return !self.pullToRefreshView.hidden;
@@ -225,7 +225,7 @@ static char UIScrollViewPullToRefreshView;
     UIEdgeInsets currentInsets = self.scrollView.contentInset;
     CGFloat offset = MAX(self.scrollView.contentOffset.y * -1, 0);
     currentInsets.top = MIN(offset, self.originalTopInset + self.bounds.size.height);
-    //currentInsets.top = self.originalTopInset + self.bounds.size.height;
+    currentInsets.top = self.originalTopInset + self.bounds.size.height;
     [self setScrollViewContentInset:currentInsets];
 }
 

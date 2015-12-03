@@ -40,7 +40,7 @@ typedef NSUInteger KoaPullToRefreshState;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIFont *textFont;
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
-@property (nonatomic, strong, readonly) UILabel *loaderControl;
+@property (nonatomic, strong, readonly) UILabel *loaderView;
 @property (nonatomic, strong, readonly) NSString *fontAwesomeIcon;
 @property (nonatomic, readonly) KoaPullToRefreshState state;
 
