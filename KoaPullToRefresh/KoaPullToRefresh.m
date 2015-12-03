@@ -26,7 +26,7 @@ static CGFloat KoaPullToRefreshViewTitleBottomMargin = 12;
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, readwrite) CGFloat originalTopInset;
 @property (nonatomic, readwrite) CGFloat originalBottomInset;
-@property (nonatomic, assign) BOOL wasTriggeredByUser;
+@property (nonatomic, assign) BOOL isTriggeredByUser;
 @property (nonatomic, assign) BOOL showsPullToRefresh;
 @property(nonatomic, assign) BOOL isObserving;
 
@@ -87,6 +87,9 @@ static char UIScrollViewPullToRefreshView;
         self.pullToRefreshView = view;
         self.showsPullToRefresh = YES;
     }
+
+    KoaPullToRefreshViewHeightShowed = pullToRefreshHeightShowed;
+    KoaPullToRefreshViewTitleBottomMargin += pullToRefreshHeightShowed;
 }
 
 - (void)setPullToRefreshView:(KoaPullToRefreshView *)pullToRefreshView {
@@ -123,6 +126,8 @@ static char UIScrollViewPullToRefreshView;
         }
     }
 }
+
+#pragma mark - Hello folks !
 
 - (BOOL)showsPullToRefresh {
     return !self.pullToRefreshView.hidden;
@@ -216,17 +221,11 @@ static char UIScrollViewPullToRefreshView;
 
 #pragma mark - Scroll View
 
-- (void)resetScrollViewContentInset {
-    UIEdgeInsets currentInsets = self.scrollView.contentInset;
-    currentInsets.top = self.originalTopInset;
-    [self setScrollViewContentInset:currentInsets];
-}
-
 - (void)setScrollViewContentInsetForLoading {
     UIEdgeInsets currentInsets = self.scrollView.contentInset;
-    //CGFloat offset = MAX(self.scrollView.contentOffset.y * -1, 0);
-    //currentInsets.top = MIN(offset, self.originalTopInset + self.bounds.size.height);
-    currentInsets.top = self.originalTopInset + self.bounds.size.height;
+    CGFloat offset = MAX(self.scrollView.contentOffset.y * -1, 0);
+    currentInsets.top = MIN(offset, self.originalTopInset + self.bounds.size.height);
+    //currentInsets.top = self.originalTopInset + self.bounds.size.height;
     [self setScrollViewContentInset:currentInsets];
 }
 
