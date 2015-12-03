@@ -1,8 +1,8 @@
 language: objective-c
 
-before_install:
-  - brew update
-  - brew install xctool
+# before_install:
+#   - brew update
+#   - brew install xctool
 
 notifications:
   email: false
