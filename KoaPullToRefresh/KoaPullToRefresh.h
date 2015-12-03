@@ -40,7 +40,7 @@ typedef NSUInteger KoaPullToRefreshState;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIFont *textFont;
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
-@property (nonatomic, strong, readonly) UILabel *loaderLabel;
+@property (nonatomic, strong, readonly) UILabel *loaderControl;
 @property (nonatomic, strong, readonly) NSString *fontAwesomeIcon;
 @property (nonatomic, readonly) KoaPullToRefreshState state;
 
@@ -48,5 +48,6 @@ typedef NSUInteger KoaPullToRefreshState;
 - (void)setFontAwesomeIcon:(NSString *)fontAwesomeIcon;
 - (void)startAnimating;
 - (void)stopAnimating;
+- (void)disableAnimation;
 
 @end
